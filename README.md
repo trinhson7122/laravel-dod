@@ -15,7 +15,7 @@ The recommended way to install Laravel DOD is through
 [Composer](https://getcomposer.org/).
 
 ```bash
-composer require guzzlehttp/guzzle
+composer require sontx/laravel-dod
 ```
 
 
