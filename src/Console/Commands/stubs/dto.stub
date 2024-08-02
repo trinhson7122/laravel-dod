@@ -1,0 +1,24 @@
+<?php
+
+namespace {namespace};
+
+use Illuminate\Http\Request;
+
+class {class}
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Set data to object
+     */
+    public function make(Request $request)
+    {
+        // $this->setName($request['name])
+    }
+}

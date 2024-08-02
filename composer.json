@@ -1,0 +1,36 @@
+{
+    "name": "sontx/laravel-dod",
+    "description": "Artisan to make: repositoty, action, dto, view model, service, .etc.",
+    "keywords": [
+        "repositoty",
+        "action",
+        "dto",
+        "view model",
+        "service",
+        "laravel",
+        "laravel-dod"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "SonTX\\LaravelDOD\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Trịnh Xuân Sơn",
+            "email": "sonit7122@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SonTX\\LaravelDOD\\LaravelDODServiceProvider"
+            ]
+        }
+    }
+}

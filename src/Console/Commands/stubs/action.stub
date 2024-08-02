@@ -1,0 +1,24 @@
+<?php
+
+namespace {namespace};
+
+use Illuminate\Http\Request;
+
+class {class}
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the action.
+     */
+    public function handle()
+    {
+        //
+    }
+}

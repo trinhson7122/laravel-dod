@@ -1,0 +1,50 @@
+<?php
+
+namespace {namespace};
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use App\Models\{model};
+
+class {class}
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Get all
+     */
+    public function all(): Collection
+    {
+        return {model}::query()->get();
+    }
+
+    /**
+     * Get by id
+     */
+    public function get(string|int $id): {model}
+    {
+        return {model}::query()->find($id);
+    }
+
+    /**
+     * Save
+     */
+    public function save({model} ${model_var}): void
+    {
+        ${model_var}->save();
+    }
+
+    /**
+     * Delete
+     */
+    public function delete({model} ${model_var}): void
+    {
+        ${model_var}->delete();
+    }
+}
