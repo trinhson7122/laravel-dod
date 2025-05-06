@@ -2,28 +2,9 @@
 
 namespace {namespace};
 
-use Illuminate\Support\Collection;
-use App\Models\{model};
+use SonTX\LaravelDOD\Repositories\Models\Interfaces\BaseRepositoryInterface;
 
-interface {class}
+interface {class} extends BaseRepositoryInterface
 {
-    /**
-     * Get all
-     */
-    public function all(): Collection;
-
-    /**
-     * Get by id
-     */
-    public function get(string|int $id): {model};
-
-    /**
-     * Save
-     */
-    public function save({model} ${model_var}): void;
-
-    /**
-     * Delete
-     */
-    public function delete({model} ${model_var}): void;
+    //
 }

@@ -25,7 +25,7 @@ class CreateDTOCommand extends BaseCommand
      */
     public function handle()
     {
-        $this->init($this->argument('name'), config('laraveldod.dto_folder', 'DataTransferObjects'));
+        $this->init($this->argument('name'), config('laraveldod.dto_folder', 'DTOs'));
 
         $this->createFile(str_replace([
             '{namespace}',

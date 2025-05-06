@@ -11,7 +11,7 @@ class CreateRepositoryCommand extends BaseCommand
      *
      * @var string
      */
-    protected $signature = 'make:repository {name}';
+    protected $signature = 'make:repository {name} {--no-model}';
 
     /**
      * The console command description.
@@ -25,32 +25,63 @@ class CreateRepositoryCommand extends BaseCommand
      */
     public function handle()
     {
-        $this->init($this->argument('name'), config('laraveldod.repository_folder', 'Repositories'));
+        $isNoModel = $this->option('no-model');
 
-        $this->createFile(str_replace([
-            '{namespace}',
-            '{class}',
-            '{model}',
-            '{model_var}',
-        ], [
-            $this->getNamespace(),
-            $this->classname,
-            Str::of($this->classname)->remove("Repository"),
-            Str::of($this->classname)->camel(),
-        ], $this->getStub('repository.stub')));
+        if (!$isNoModel) {
+            $this->init('Models/Repo/' . $this->argument('name'), config('laraveldod.repository_folder', 'Repositories'));
+            $this->createFile(str_replace([
+                '{namespace}',
+                '{class}',
+                '{model}',
+                '{model_var}',
+            ], [
+                $this->getNamespace(),
+                $this->classname,
+                Str::of($this->classname)->remove("Repository"),
+                Str::of($this->classname)->camel(),
+            ], $this->getStub('repository.stub')));
 
-        $this->classname = $this->classname . 'Interface';
+            $this->init('Models/Interfaces/' . $this->argument('name'), config('laraveldod.repository_folder', 'Repositories'));
+            $this->classname = $this->classname . 'Interface';
+            $this->createFile(str_replace([
+                '{namespace}',
+                '{class}',
+                '{model}',
+                '{model_var}',
+            ], [
+                $this->getNamespace(),
+                $this->classname,
+                Str::of($this->classname)->remove("Repository")->remove("Interface"),
+                Str::of($this->classname)->remove("Repository")->remove("Interface")->camel(),
+            ], $this->getStub('repository_interface.stub')), false);
+        }
+        else {
+            $this->init($this->argument('name'), config('laraveldod.repository_folder', 'Repositories'));
+            $this->createFile(str_replace([
+                '{namespace}',
+                '{class}',
+                '{model}',
+                '{model_var}',
+            ], [
+                $this->getNamespace(),
+                $this->classname,
+                Str::of($this->classname)->remove("Repository"),
+                Str::of($this->classname)->camel(),
+            ], $this->getStub('repository_no_model.stub')));
 
-        $this->createFile(str_replace([
-            '{namespace}',
-            '{class}',
-            '{model}',
-            '{model_var}',
-        ], [
-            $this->getNamespace(),
-            $this->classname,
-            Str::of($this->classname)->remove("Repository")->remove("Interface"),
-            Str::of($this->classname)->remove("Repository")->remove("Interface")->camel(),
-        ], $this->getStub('repository_interface.stub')), false);
+            $this->classname = $this->classname . 'Interface';
+
+            $this->createFile(str_replace([
+                '{namespace}',
+                '{class}',
+                '{model}',
+                '{model_var}',
+            ], [
+                $this->getNamespace(),
+                $this->classname,
+                Str::of($this->classname)->remove("Repository")->remove("Interface"),
+                Str::of($this->classname)->remove("Repository")->remove("Interface")->camel(),
+            ], $this->getStub('repository_interface_no_model.stub')), false);
+        }
     }
 }

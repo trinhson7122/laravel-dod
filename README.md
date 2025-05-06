@@ -33,6 +33,12 @@ Make Repositoty.
 php artisan make:repositoty myRepositoty
 ```
 
+Make Repositoty without extend model
+
+```bash
+php artisan make:repositoty myRepositoty --no-model
+```
+
 Make DataTransferObject.
 
 ```bash

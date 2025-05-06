@@ -2,7 +2,6 @@
 
 namespace SonTX\LaravelDOD;
 
-use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
 use SonTX\LaravelDOD\Console\Commands\CreateActionCommand;
 use SonTX\LaravelDOD\Console\Commands\CreateDTOCommand;
@@ -17,8 +16,6 @@ class LaravelDODServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/laraveldod.php' => config_path('laraveldod.php'),
         ], 'laravel-dod-config');
-        
-        AboutCommand::add('sontx/laravel-dod', fn () => ['Version' => '1.0.0']);
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -30,7 +27,7 @@ class LaravelDODServiceProvider extends ServiceProvider
             ]);
         }
     }
-    
+
     public function register()
     {
         // \Illuminate\Support\Facades\Log::info('LaravelDODServiceProvider::register()');
