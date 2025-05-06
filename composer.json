@@ -1,6 +1,6 @@
 {
     "name": "sontx/laravel-dod",
-    "version": "1.0.4",
+    "version": "1.0.3",
     "description": "Artisan to make: repositoty, action, dto, view model, service, .etc.",
     "keywords": [
         "repositoty",
