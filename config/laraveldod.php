@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dto_folder' => 'DataTransferObjects',
+    'dto_folder' => 'DTOs',
 
     'action_folder' => 'Actions',
 
